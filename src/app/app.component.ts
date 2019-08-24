@@ -1,4 +1,11 @@
 import { Component } from '@angular/core';
+import { AppDataService } from './services/app-data.service';
+import { Observable } from 'rxjs';
+
+interface WebClientAppData {
+  title: string;
+  author: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -6,5 +13,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = "How 'Bout Them Chiefs";
+
+  appData: Observable<WebClientAppData>;
+  fetchComplete: boolean = false;
+  errorFetchingData: boolean = false;
+
+  constructor(private appDataService: AppDataService) {}
+
+  ngOnInit() {
+    this.appData = this.appDataService.getAppData();
+    this.appData.subscribe({
+      next: ((data) => {
+        this.fetchComplete = true;
+      }).bind(this),
+      error: (() => {
+        this.errorFetchingData = true;
+      }).bind(this)
+    });
+  }
 }
