@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+    <span *ngIf="!fetchComplete">Loading...</span>
+    <span *ngIf="errorFetchingData">Error</span>
+    <span>{{ (appData | async)?.title }}</span>
+  
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+  
+    <span>{{ (appData | async)?.author }}</span>
+  </mat-toolbar>

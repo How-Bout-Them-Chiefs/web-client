@@ -1,11 +1,14 @@
 import { environment } from '../environments/environment';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 
 import { Browser } from 'protractor';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+/* Components */
+import { AppComponent } from './app.component';
+import { TitlebarComponent } from './components/titlebar/titlebar.component';
 
 /* Firebase */
 import { AngularFireModule } from '@angular/fire';
@@ -16,7 +19,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TitlebarComponent
   ],
   imports: [
     BrowserModule,
