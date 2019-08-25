@@ -16,6 +16,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 /* Material */
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+
+/* Font Awesome */
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AngularFirestoreModule,
 
     /* Material */
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule,
+
+    /* Font Awesome */
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

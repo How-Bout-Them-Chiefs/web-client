@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppDataService, WebClientAppData } from '../../services/app-data.service';
+import { MatButtonModule } from '@angular/material/button';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons'; 
 
 @Component({
   selector: 'app-titlebar',
@@ -12,6 +14,7 @@ export class TitlebarComponent implements OnInit {
   appData: Observable<WebClientAppData>;
   fetchComplete: boolean = false;
   errorFetchingData: boolean = false;
+  faUserCircle = faUserCircle;
 
   constructor(private appDataService: AppDataService) {}
 

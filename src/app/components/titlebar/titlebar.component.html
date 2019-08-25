@@ -6,5 +6,8 @@
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
   
-    <span>{{ (appData | async)?.author }}</span>
+    <button mat-raised-button color="accent">
+        <fa-icon [icon]="faUserCircle" style="padding-right: 10px;"></fa-icon>
+        Sign In
+    </button>
   </mat-toolbar>
