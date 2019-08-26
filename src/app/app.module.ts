@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /* Components */
 import { AppComponent } from './app.component';
 import { TitlebarComponent } from './components/titlebar/titlebar.component';
+import { DataFileUploadComponent } from './components/data-file-upload/data-file-upload.component';
 
 /* Firebase */
 import { AngularFireModule } from '@angular/fire';
@@ -16,11 +17,13 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 /* Material */
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { RoutesModule } from './routes/routes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TitlebarComponent
+    TitlebarComponent,
+    DataFileUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AngularFirestoreModule,
 
     /* Material */
-    MatToolbarModule
+    MatToolbarModule,
+
+    RoutesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
