@@ -6,17 +6,26 @@ import { Browser } from 'protractor';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+/* Services */
+import { AppDataService } from './services/app-data.service';
+import { AuthService } from './services/auth.service';
+
 /* Components */
 import { AppComponent } from './app.component';
 import { TitlebarComponent } from './components/titlebar/titlebar.component';
+import { SignInButtonComponent } from './components/sign-in-button/sign-in-button.component';
+import { AuthSheetComponent } from './components/auth-sheet/auth-sheet.component';
 
 /* Firebase */
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 /* Material */
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
 
 /* Font Awesome */
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -24,8 +33,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
-    TitlebarComponent
+    TitlebarComponent,
+    SignInButtonComponent,
+    AuthSheetComponent
   ],
+  entryComponents: [AuthSheetComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -34,15 +46,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     /* Firebase */
     AngularFireModule.initializeApp( environment.firebase ),
     AngularFirestoreModule,
+    AngularFireAuthModule,
 
     /* Material */
     MatToolbarModule,
     MatButtonModule,
+    MatBottomSheetModule,
+    MatListModule,
 
     /* Font Awesome */
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [ AppDataService, AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

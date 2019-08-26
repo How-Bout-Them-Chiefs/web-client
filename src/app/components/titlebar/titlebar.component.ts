@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppDataService, WebClientAppData } from '../../services/app-data.service';
 import { MatButtonModule } from '@angular/material/button';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons'; 
 
 @Component({
   selector: 'app-titlebar',
@@ -14,11 +13,13 @@ export class TitlebarComponent implements OnInit {
   appData: Observable<WebClientAppData>;
   fetchComplete: boolean = false;
   errorFetchingData: boolean = false;
-  faUserCircle = faUserCircle;
+
+  userNavOpen: boolean
 
   constructor(private appDataService: AppDataService) {}
 
   ngOnInit() {
+    
     this.appData = this.appDataService.getAppData();
     this.appData.subscribe({
       next: ((data) => {
@@ -28,6 +29,7 @@ export class TitlebarComponent implements OnInit {
         this.errorFetchingData = true;
       }).bind(this)
     });
+
   }
 
 }

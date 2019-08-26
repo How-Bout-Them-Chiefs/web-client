@@ -7,4 +7,6 @@ import { TitlebarComponent } from './components/titlebar/titlebar.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  constructor() {}
 }
