@@ -1,1 +1,4 @@
-<p>data-file-upload works!</p>
+<div>
+    <input type="file" accept=".json" (change)="onFileChange($event.target.files)" />
+    <pre> {{JSON.stringify(fileContents)}} </pre>
+</div>
