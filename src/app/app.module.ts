@@ -6,6 +6,8 @@ import { Browser } from 'protractor';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { TeamDataParserService } from './services/team-data-parser.service';
+
 /* Components */
 import { AppComponent } from './app.component';
 import { TitlebarComponent } from './components/titlebar/titlebar.component';
@@ -39,7 +41,9 @@ import { RoutesModule } from './routes/routes.module';
 
     RoutesModule
   ],
-  providers: [],
+  providers: [
+    TeamDataParserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

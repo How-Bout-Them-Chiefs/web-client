@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TeamDataParserService, apiFormatTeamData } from '../../services/team-data-parser.service';
 
 @Component({
   selector: 'app-data-file-upload',
@@ -9,22 +10,43 @@ export class DataFileUploadComponent implements OnInit {
 
   private fileReader: FileReader = new FileReader();
 
-  fileContents = {};
+  dataToUpload: any = null;
   JSON = JSON;
+  error: string = null;
+  success: string = null;
 
-  constructor() { }
+  constructor(
+    private teamDataParser: TeamDataParserService
+  ) { }
 
   ngOnInit() {
   }
 
   onFileChange(fileList: FileList) {
+    this.error = null;
+    this.success = null;
     if (fileList.length > 0) {
       const file = fileList[0];
 
       this.fileReader.onloadend = function() {
-        this.fileContents = JSON.parse( this.fileReader.result );
+        this.dataToUpload = JSON.parse( this.fileReader.result );
       }.bind(this);
       this.fileReader.readAsText(file);
+    } else {
+
+    }
+  }
+
+  onUploadTeamDataClicked() {
+    this.error = null;
+    this.success = null;
+    try {
+      this.dataToUpload = this.teamDataParser.parseTeams(
+        this.dataToUpload
+      );
+      this.success = "Success!";
+    } catch( error ) {
+      this.error = "Could not parse file as team data.";
     }
   }
 }

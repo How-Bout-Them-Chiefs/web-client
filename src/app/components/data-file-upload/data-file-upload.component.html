@@ -1,4 +1,7 @@
 <div>
     <input type="file" accept=".json" (change)="onFileChange($event.target.files)" />
-    <pre> {{JSON.stringify(fileContents)}} </pre>
+    <p *ngIf="error" style="color: red;">{{error}}</p>
+    <p *ngIf="success" style="color: green;">{{success}}</p>
+    <pre *ngIf="dataToUpload"> {{JSON.stringify(dataToUpload)}} </pre>
+    <button *ngIf="dataToUpload" (click)="onUploadTeamDataClicked()">Upload Team Data</button>
 </div>
