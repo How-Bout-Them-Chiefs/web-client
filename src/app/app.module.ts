@@ -15,6 +15,8 @@ import { AppComponent } from './app.component';
 import { TitlebarComponent } from './components/titlebar/titlebar.component';
 import { SignInButtonComponent } from './components/sign-in-button/sign-in-button.component';
 import { AuthSheetComponent } from './components/auth-sheet/auth-sheet.component';
+import { ProfileSheetComponent } from './components/profile-sheet/profile-sheet.component';
+import { SignInSheetComponent } from './components/sign-in-sheet/sign-in-sheet.component';
 
 /* Firebase */
 import { AngularFireModule } from '@angular/fire';
@@ -35,7 +37,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppComponent,
     TitlebarComponent,
     SignInButtonComponent,
-    AuthSheetComponent
+    AuthSheetComponent,
+    ProfileSheetComponent,
+    SignInSheetComponent
   ],
   entryComponents: [AuthSheetComponent],
   imports: [

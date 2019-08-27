@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { TitlebarComponent } from './titlebar/titlebar.component';
 import { SignInButtonComponent } from './sign-in-button/sign-in-button.component';
 import { AuthSheetComponent } from './auth-sheet/auth-sheet.component';
+import { SignInSheetComponent } from './sign-in-sheet/sign-in-sheet.component';
+import { ProfileSheetComponent } from './profile-sheet/profile-sheet.component';
 
 @NgModule({
-  declarations: [ TitlebarComponent, SignInButtonComponent, AuthSheetComponent ],
+  declarations: [ TitlebarComponent, SignInButtonComponent, AuthSheetComponent, SignInSheetComponent, ProfileSheetComponent ],
   imports: [
     CommonModule
   ]

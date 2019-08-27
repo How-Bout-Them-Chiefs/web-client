@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { AuthService } from '../../services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-auth-sheet',
@@ -10,21 +10,35 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AuthSheetComponent implements OnInit {
 
-  faGoogle = faGoogle;
+  private userSignedIn: boolean = null;
 
   constructor(
     private _bottomSheetRef: MatBottomSheetRef<AuthSheetComponent>,
     private authService: AuthService
   ) {
+    this.authService.user.subscribe( {
+      next: ( ( user ) => {
 
+        var newSignedInValue = false;
+
+        if( user ) {
+          newSignedInValue = true;
+        }
+
+        if( this.userSignedIn != null && newSignedInValue != this.userSignedIn ) {
+          this._bottomSheetRef.dismiss();
+        }
+
+        this.userSignedIn = newSignedInValue;
+
+      } ).bind(this)
+    } );
   }
 
   ngOnInit() {
 
-  }
 
-  openLink(event: MouseEvent): void {
-    this.authService.initiateGoogleSignIn();
+
   }
 
 }
