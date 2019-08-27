@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-auth-sheet',
@@ -12,23 +12,19 @@ export class AuthSheetComponent implements OnInit {
 
   faGoogle = faGoogle;
 
-  constructor(private _bottomSheetRef: MatBottomSheetRef<AuthSheetComponent>,
-              public afAuth: AngularFireAuth) { }
+  constructor(
+    private _bottomSheetRef: MatBottomSheetRef<AuthSheetComponent>,
+    private authService: AuthService
+  ) {
+
+  }
 
   ngOnInit() {
-    this.afAuth.user.subscribe({
-      next: (( data ) => {
-        console.log( "auth user" );
-        console.log( data );
-      }).bind(this),
-      error: (( error ) => {
-        console.log( "error" );
-        console.log( error );
-      }).bind(this)
-    });
+
   }
 
   openLink(event: MouseEvent): void {
+    this.authService.initiateGoogleSignIn();
   }
 
 }

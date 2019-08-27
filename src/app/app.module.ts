@@ -57,7 +57,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     /* Font Awesome */
     FontAwesomeModule
   ],
-  providers: [ AppDataService, AuthService ],
+  providers: [
+    AppDataService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
