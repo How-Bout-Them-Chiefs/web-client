@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="toolbar">
+<mat-toolbar color="primary" class="toolbar titlebar">
     <span *ngIf="!fetchComplete">Loading...</span>
     <span *ngIf="errorFetchingData">Error</span>
     <span>{{ (appData | async)?.title }}</span>
