@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TitlebarComponent } from './components/titlebar/titlebar.component';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,8 @@ import { TitlebarComponent } from './components/titlebar/titlebar.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  constructor(
+    authService: AuthService
+  ) {}
 }

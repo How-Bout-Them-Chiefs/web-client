@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppDataService, WebClientAppData } from '../../services/app-data.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-titlebar',
@@ -13,9 +14,12 @@ export class TitlebarComponent implements OnInit {
   fetchComplete: boolean = false;
   errorFetchingData: boolean = false;
 
+  userNavOpen: boolean
+
   constructor(private appDataService: AppDataService) {}
 
   ngOnInit() {
+    
     this.appData = this.appDataService.getAppData();
     this.appData.subscribe({
       next: ((data) => {
@@ -25,6 +29,7 @@ export class TitlebarComponent implements OnInit {
         this.errorFetchingData = true;
       }).bind(this)
     });
+
   }
 
 }

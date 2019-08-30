@@ -1,0 +1,9 @@
+<div>
+  <div *ngIf="userSignedIn; else signIn">
+    <app-profile-sheet></app-profile-sheet>
+  </div>
+
+  <ng-template #signIn>
+    <app-sign-in-sheet></app-sign-in-sheet>
+  </ng-template>
+</div>
